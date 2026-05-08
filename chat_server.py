@@ -652,7 +652,7 @@ class ChatClient:
 def run_client():
     """运行客户端交互界面"""
     print("=" * 50)
-    print("       Redis 聊天室客户端")
+    print("       hik talk客户端")
     print("=" * 50)
     
     client = ChatClient()

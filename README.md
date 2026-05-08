@@ -1,6 +1,6 @@
-# Redis 聊天室
+# hik talk
 
-基于 Redis 的多房间实时聊天室，使用 Python 实现，充分利用 Redis 五种核心数据结构。
+基于 Redis 的多房间实时聊天室，支持命令行和 Web 两种访问方式，充分利用 Redis 五种核心数据结构。
 
 ## 数据结构设计
 
@@ -30,7 +30,41 @@ pip install redis
 
 确保 Redis 服务已启动（默认端口 6379）。
 
-### 2. 启动聊天室服务器
+### 2. 安装依赖
+
+```bash
+pip install redis flask
+```
+
+---
+
+## Web 版（推荐）
+
+### 启动 Web 服务器
+
+```bash
+python web_app.py
+```
+
+或双击 `start_web.bat`
+
+然后在浏览器中访问: http://localhost:5000
+
+### Web 版功能
+
+- **用户注册/登录**: 新用户首次登录自动注册并保存密码
+- **个人资料**: 修改用户名、头像
+- **修改密码**: 安全修改账户密码
+- **房间管理**: 创建房间、加入房间、查看房间列表
+- **实时聊天**: 发送消息、查看历史消息
+- **在线用户**: 查看当前在线用户列表
+- **消息排行榜**: 查看房间消息发送排行
+
+---
+
+## 命令行版
+
+### 启动聊天室服务器
 
 ```bash
 python chat_server.py server
@@ -38,7 +72,7 @@ python chat_server.py server
 
 或双击 `start_server.bat`
 
-### 3. 启动客户端（可开多个终端）
+### 启动客户端（可开多个终端）
 
 ```bash
 python chat_server.py client
@@ -88,9 +122,14 @@ redis/
 ├── room.py            # 房间管理模块
 ├── user.py            # 用户管理模块
 ├── message.py         # 消息管理模块
-├── chat_server.py     # 服务器与客户端主程序
-├── start_server.bat   # Windows 启动服务器脚本
-├── start_client.bat   # Windows 启动客户端脚本
+├── chat_server.py     # 命令行服务器与客户端主程序
+├── web_app.py         # Flask Web 应用
+├── templates/         # HTML 模板
+│   ├── login.html     # 登录页面
+│   └── chat.html      # 聊天室页面
+├── start_server.bat   # Windows 启动命令行服务器
+├── start_client.bat   # Windows 启动命令行客户端
+├── start_web.bat      # Windows 启动 Web 服务器
 └── README.md          # 说明文档
 ```
 

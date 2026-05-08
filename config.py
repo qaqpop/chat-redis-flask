@@ -1,5 +1,5 @@
 """
-Redis 聊天室配置
+hik talk配置
 """
 
 # Redis 连接配置
